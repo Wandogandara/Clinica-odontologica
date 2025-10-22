@@ -71,43 +71,66 @@ nav ul li a:hover {
     color: #0aa5d8;
 }
 
-  .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+  /*CSS para Menu Responsivo --- */
 
-         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background-color: white;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: all 0.5s;
-            }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.2rem;
-            }
-        }
+/* 1. Oculta o ícone do menu-toggle no desktop */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: #0aa5d8; /* Cor do ícone do hambúrguer */
+}
 
+/* 2. Regras de responsividade para telas menores */
+@media (max-width: 768px) {
+    .header-content {
+        padding: 15px 20px; /* Adiciona padding nas laterais no mobile */
+    }
+
+    /* 2.1. Exibe o ícone do menu-toggle no mobile */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* 2.2. Oculta a lista de links por padrão no mobile */
+    nav .nav-links {
+        /* Transforma a lista em um menu suspenso/lateral */
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 65px; /* Altura do header para começar abaixo dele */
+        left: 0;
+        width: 100%;
+        background-color: #f7f7f7; /* Cor de fundo do menu aberto */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 90; /* Abaixo do header fixo */
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    /* 2.3. Estilo para os itens da lista no menu mobile */
+    nav .nav-links li {
+        margin: 0;
+        border-bottom: 1px solid #eee;
+    }
+    
+    nav .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    nav .nav-links li a {
+        display: block; /* Ocupa toda a largura do item */
+        padding: 15px 0;
+    }
+    
+    /* 2.4. A regra principal: Exibe o menu quando a classe 'active' está presente */
+    nav .nav-links.active {
+        display: flex;
+    }
+}
+
+         
+        
 
 /* Banner Pricipal */
 
